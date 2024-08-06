@@ -1,33 +1,24 @@
 package steps;
 
 /*
- * Hooks File: [Hooks File Name]
+ * Hook.java
  *
  * Description:
- * This file contains custom hooks used throughout the [Application Name] application.
- * Hooks are reusable functions that encapsulate stateful logic, allowing you to
- * share this logic between different components in your application.
- *
- * Hooks Included:
- * - [Hook1Name]: [Brief description of Hook1]
- * - [Hook2Name]: [Brief description of Hook2]
- * - [Hook3Name]: [Brief description of Hook3]
+ * This file acts as a base class to initialize the  properties file to read the environment and  browser and
+ * driver and initialize the driver.
  *
  * Usage:
- * To use a hook, import it from this file and call it within your component:
+ * @Before is use to setup driver, properties, env
+ * 1) initialize the properties file and read the properties file based on env from Driverfactory class
+ * 2) reads the url/browser from the .properties file and passes to initiDriver
+ * 3) And passes the driver to TestRunner file from which the feature file starts running the scenarios
+ * 4) Hooks acts as a connector between Steps definition and page classes
+ * 5) getLoginPage() sends the LoginPage object reference from hooks file is sent to stepdefination Controctor class.
+ *  Which helps in using the methods from that class.
  *
- * import { [Hook1Name] } from './hooks';
  *
- * function MyComponent() {
- *   const [state, setState] = [Hook1Name]();
- *   // Use the state and setState functions returned by the hook
- * }
+ * @After is used to close the driver.
  *
- * Author:
- * [Your Name] ([email@example.com])
- *
- * Copyright (c) [Current Year] [Your Name]
- * Licensed under the [License Type] License.
  */
 import java.util.Properties;
 import org.openqa.selenium.WebDriver;
@@ -72,7 +63,7 @@ public class Hooks {
     @After
     public void tearDown() {
         if (driver != null) {
-           // driver.quit();
+            driver.quit();
         }
     }
 

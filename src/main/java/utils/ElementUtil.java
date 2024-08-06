@@ -1,5 +1,15 @@
 package utils;
 
+
+/**
+ *
+ * This progam is used for finding element with and without wait
+ * various methods like sendkeys, click, element present, get attribute values
+ * get text , get a dropdown value, select a dropdown value
+ *
+ *
+ */
+
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,11 +35,7 @@ import factory.DriverFactory;
 
 import io.qameta.allure.Step;
 
-/**
- *
- * @author Sirisha
- *
- */
+
 public class ElementUtil {
 
     private WebDriver driver;

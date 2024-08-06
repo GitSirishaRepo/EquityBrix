@@ -1,5 +1,26 @@
 package utils;
 
+
+/*
+ * EqBrikOTP.java
+ *
+ * Description:
+ * This program fetches the OTP that is sent to gmail account from Microsoft and returns 6 digit OTP
+ *
+ * Usage:
+ * 1) Logins to the gmail account
+ * 2) account used
+ * String username = "lsnsponsor@gmail.com";
+ *	String password = "xavr iyox cied mxqj";
+ * 3) If you need to use a different gmail account change values of the above variable username and password
+ * 4) program goes to Inbox and reads the latest  email with Subject //"Microsoft on behalf of EquityBrix"
+ * 5) trims the 6 digit OTP from body and stores in the OTP variable
+ * 6) returns the OTP variable.
+ *
+ *
+ *
+ */
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -43,7 +64,7 @@ public class EqBrikOTP {
 				if (messages.length > 0) {
 
 					Message latestMessage = messages[messages.length-1];
-					String messageContent="";
+					String messageContent="Microsoft on behalf of EquityBrix";
 					Object content = latestMessage.getContent();
 					messageContent = (String) content;
 					String regex="Your code is: .*([0-9]{6}).*";
